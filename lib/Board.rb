@@ -14,6 +14,8 @@ class Board
     end
   end
 
+  def check_winner?
+  end
 
 end
 

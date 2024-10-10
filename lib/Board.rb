@@ -6,8 +6,11 @@ class Board
   end
 
   def print_board
+    iterator = 0
+    puts "  0 1 2"
     self.board.each do |x|
-      puts x.join(" ")
+      puts "#{iterator} " + x.join(" ")
+      iterator += 1
     end
   end
 

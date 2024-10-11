@@ -16,10 +16,9 @@ class Game
   end
 
   def play
-    winner = 1
+    winner = false
 
-    until winner > 5
-      puts "Is this working"
+    until winner == true
       @board.print_board
       puts "#{@player1.name}'s turn"
       puts "row number: "
@@ -28,12 +27,22 @@ class Game
       column = gets.chomp
       @board.board[row.to_i][column.to_i] = @player1.character
       @board.print_board
+      if(@board.check_winner?(@player1.character))
+        puts "Game over, #{@player1.name} wins"
+        winner = true
+        break
+      end
       puts "#{@player2.name}'s turn"
       puts "row number: "
       row = gets.chomp
       puts "column number: "
       column = gets.chomp
       @board.board[row.to_i][column.to_i] = @player2.character
+      if(@board.check_winner?(@player2.character))
+        puts "Game over, #{@player2.name} wins"
+        winner = true
+        break
+      end
     end
   end
 

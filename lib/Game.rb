@@ -19,6 +19,11 @@ class Game
     winner = false
 
     until winner == true
+
+      if(@board.board.flatten.include?("_") == false)
+        puts "Cats Game, Game over"
+        break
+      end
       @board.print_board
 
       puts "#{@player1.name}'s turn"
@@ -48,10 +53,6 @@ class Game
         break
       end
 
-      if(@board.board.flatten.include?("_") == false)
-        puts "Cats Game, Game over"
-        break
-      end
     end
   end
 

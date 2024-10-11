@@ -40,11 +40,16 @@ class Game
       row = gets.chomp
       puts "column number: "
       column = gets.chomp
-      
+
       @board.board[row.to_i][column.to_i] = @player2.character
       if(@board.check_winner?(@player2.character))
         puts "Game over, #{@player2.name} wins"
         winner = true
+        break
+      end
+
+      if(@board.board.flatten.include?("_") == false)
+        puts "Cats Game, Game over"
         break
       end
     end

@@ -16,13 +16,10 @@ class Board
 
   def check_winner?(character)
       if(check_rows?(character) == true)
-        puts"Game over"
         return true
       elsif(check_columns?(character) == true)
-        puts "Game over"
         return true
       elsif(check_diagnols?(character) == true) 
-        puts "Game over"
         return true
       else 
         return false

@@ -1,6 +1,3 @@
-
-
-
 class Board
   attr_accessor :board
 

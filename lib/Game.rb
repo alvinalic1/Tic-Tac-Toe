@@ -24,10 +24,8 @@ class Game
 
       if(@board.check_winner?(@player1.character))
         puts "Game over, #{@player1.name} wins"
-        winner = true
         break
       end
-
       if(@board.board.flatten.include?("_") == false)
         puts "Cats Game, Game over"
         break
@@ -35,12 +33,12 @@ class Game
 
       @board.print_board
       player_turn(@player2, @board)
-     
+
       if(@board.check_winner?(@player2.character))
         puts "Game over, #{@player2.name} wins"
-        winner = true
         break
       end
+     
 
       if(@board.board.flatten.include?("_") == false)
         puts "Cats Game, Game over"
@@ -70,10 +68,6 @@ class Game
 
       if(spot_available?(board, row.to_i, column.to_i))
         @board.board[row.to_i][column.to_i] = player.character
-        if(@board.check_winner?(player.character))
-          puts "Game over, #{player.name} wins"
-          break
-        end
         complete = true
       else
         puts "That spot is unavailable, pick another"
@@ -83,9 +77,3 @@ class Game
   end
   
 end
-
-# if(@board.check_winner?(@player2.character))
-#   puts "Game over, #{@player2.name} wins"
-#   winner = true
-#   break
-# end

@@ -1,5 +1,4 @@
-require_relative 'Board.rb'
-
+require_relative 'Board'
 
 class Player
   attr_accessor :name, :character
@@ -8,8 +7,4 @@ class Player
     self.name = name
     self.character = character
   end
-
-
 end
-
-

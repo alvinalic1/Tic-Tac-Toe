@@ -1,66 +1,58 @@
 class Board
   attr_accessor :board
 
-  def initialize()
-    self.board = Array.new(3) {Array.new(3, "_")}
+  def initialize
+    self.board = Array.new(3) { Array.new(3, '_') }
   end
 
   def print_board
     iterator = 0
-    puts "  0 1 2"
-    self.board.each do |x|
-      puts "#{iterator} " + x.join(" ")
+    puts '  0 1 2'
+    board.each do |x|
+      puts "#{iterator} " + x.join(' ')
       iterator += 1
     end
   end
 
   def check_winner?(character)
-      if(check_rows?(character) == true)
-        return true
-      elsif(check_columns?(character) == true)
-        return true
-      elsif(check_diagnols?(character) == true) 
-        return true
-      else 
-        return false
-      end
+    if check_rows?(character) == true
+      true
+    elsif check_columns?(character) == true
+      true
+    else
+      check_diagnols?(character) == true
+    end
   end
 
   private
 
   def check_rows?(character)
-    if(self.board.map {|row| row[0]}.uniq == [character])
-      return true
-    elsif(self.board.map {|row| row[1]}.uniq == [character])
-      return true
-    elsif(self.board.map {|row| row[2]}.uniq == [character])
-      return true
+    if board.map { |row| row[0] }.uniq == [character]
+      true
+    elsif board.map { |row| row[1] }.uniq == [character]
+      true
     else
-      return false
+      board.map { |row| row[2] }.uniq == [character]
     end
   end
 
   def check_columns?(character)
-    if(self.board.transpose.map {|column| column[0]}.uniq == [character])
-      return true
-    elsif(self.board.transpose.map {|column| column[1]}.uniq == [character])
-      return true
-    elsif(self.board.transpose.map {|column| column[2]}.uniq == [character])
-      return true
+    if board.transpose.map { |column| column[0] }.uniq == [character]
+      true
+    elsif board.transpose.map { |column| column[1] }.uniq == [character]
+      true
     else
-      return false
+      board.transpose.map { |column| column[2] }.uniq == [character]
     end
   end
 
   def check_diagnols?(character)
-    if(self.board[0][0] == character && self.board[1][1] == character && self.board[2][2] == character)
-      return true
-    elsif(self.board[0][2] == character && self.board[1][1] == character && self.board[2][0] == character)
-      return true
+    if board[0][0] == character && board[1][1] == character && board[2][2] == character
+      true
+    elsif board[0][2] == character && board[1][1] == character && board[2][0] == character
+      true
     else
-      return false
+      false
     end
   end
-  
 end
-

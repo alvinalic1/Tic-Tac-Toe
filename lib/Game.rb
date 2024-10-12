@@ -1,8 +1,7 @@
-require_relative 'Player.rb'
-require_relative 'Board.rb'
+require_relative 'Player'
+require_relative 'Board'
 
 class Game
-
   def initialize(player1, player2, board)
     @player1 = player1
     @player2 = player2
@@ -10,9 +9,9 @@ class Game
   end
 
   def instruction
-    puts "The game board shows to row and column number"
-    puts "it is your turn you will be asked where you want to place your piece"
-    puts "row number will go first followed by the column number"
+    puts 'The game board shows to row and column number'
+    puts 'it is your turn you will be asked where you want to place your piece'
+    puts 'row number will go first followed by the column number'
   end
 
   def play
@@ -22,26 +21,25 @@ class Game
       @board.print_board
       player_turn(@player1, @board)
 
-      if(@board.check_winner?(@player1.character))
+      if @board.check_winner?(@player1.character)
         puts "Game over, #{@player1.name} wins"
         break
       end
-      if(@board.board.flatten.include?("_") == false)
-        puts "Cats Game, Game over"
+      if @board.board.flatten.include?('_') == false
+        puts 'Cats Game, Game over'
         break
       end
 
       @board.print_board
       player_turn(@player2, @board)
 
-      if(@board.check_winner?(@player2.character))
+      if @board.check_winner?(@player2.character)
         puts "Game over, #{@player2.name} wins"
         break
       end
-     
 
-      if(@board.board.flatten.include?("_") == false)
-        puts "Cats Game, Game over"
+      if @board.board.flatten.include?('_') == false
+        puts 'Cats Game, Game over'
         break
       end
     end
@@ -49,31 +47,28 @@ class Game
 
   private
 
-  def spot_available?(board, row, column)
-    if @board.board[row][column] == "_"
-      return true
-    else
-      false
-    end
+  def spot_available?(_board, row, column)
+    return true if @board.board[row][column] == '_'
+
+    false
   end
 
   def player_turn(player, board)
     complete = false
     while complete != true
       puts "#{player.name}'s turn"
-      puts "row number: "
+      puts 'row number: '
       row = gets.chomp
-      puts "column number: "
+      puts 'column number: '
       column = gets.chomp
 
-      if(spot_available?(board, row.to_i, column.to_i))
+      if spot_available?(board, row.to_i, column.to_i)
         @board.board[row.to_i][column.to_i] = player.character
         complete = true
       else
-        puts "That spot is unavailable, pick another"
+        puts 'That spot is unavailable, pick another'
         next
       end
     end
   end
-  
 end

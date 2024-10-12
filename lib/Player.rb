@@ -9,9 +9,7 @@ class Player
     self.character = character
   end
 
-  def place_character(row, column)
-    
-  end
+
 end
 
 

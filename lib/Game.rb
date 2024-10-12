@@ -1,9 +1,9 @@
 require_relative 'Player'
 require_relative 'Board'
-#A Game class that initializes both the players and the game board
-#Each players takes a turn and after each turn it checks for a winner
-#2 private methods check if the spot is available to ensure a player cant make a move if a peice is already there
-#And the second private method allows each player to take their turn
+# A Game class that initializes both the players and the game board
+# Each players takes a turn and after each turn it checks for a winner
+# 2 private methods check if the spot is available to ensure a player cant make a move if a peice is already there
+# And the second private method allows each player to take their turn
 class Game
   def initialize(player1, player2, board)
     @player1 = player1

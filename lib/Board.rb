@@ -1,6 +1,6 @@
-#Board class that initializes a new game board
-#2d array that is a 3X3 board and displays the board with the row and column numbers
-#Has method to check if there are any winners, diagnolly, vertically, or horizontally
+# Board class that initializes a new game board
+# 2d array that is a 3X3 board and displays the board with the row and column numbers
+# Has method to check if there are any winners, diagnolly, vertically, or horizontally
 class Board
   attr_accessor :board
 
